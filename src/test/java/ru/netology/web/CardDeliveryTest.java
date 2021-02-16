@@ -39,7 +39,7 @@ public class CardDeliveryTest {
                 .shouldHave(exactText("Встреча успешно забронирована на " + newDate.format(formatter)));
     }
 
-    @Test
+    //
     void shouldSendFormWithInvalidSurname() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
@@ -50,7 +50,7 @@ public class CardDeliveryTest {
         $("[data-test-id=name] .input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
-    @Test
+    //
     void shouldSendFormWithInvalidPhoneNumber() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
@@ -61,7 +61,7 @@ public class CardDeliveryTest {
         $("[data-test-id=phone] .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
-    @Test
+    //
     void shouldSendFormWithInvalidCity() {
         $("[data-test-id=city] input").setValue("Moscow");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
@@ -72,7 +72,7 @@ public class CardDeliveryTest {
         $("[data-test-id=city] .input__sub").shouldHave(exactText("Доставка в выбранный город недоступна"));
     }
 
-    @Test
+    //
     void shouldSendFormWithInvalidDate() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").doubleClick().sendKeys("11.02.2021");
@@ -83,7 +83,7 @@ public class CardDeliveryTest {
         $("[data-test-id=date] .input__sub").shouldHave(exactText("Заказ на выбранную дату невозможен"));
     }
 
-    @Test
+    //
     void shouldSendFormWithEmptyName() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
@@ -94,7 +94,7 @@ public class CardDeliveryTest {
         $("[data-test-id=name] .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
-    @Test
+    //
     void shouldSendFormWithEmptyNumber() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
@@ -105,7 +105,7 @@ public class CardDeliveryTest {
         $("[data-test-id=phone] .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
-    @Test
+    //
     void shouldSendFormWithoutCheckbox() {
         $("[data-test-id=city] input").setValue("Москва");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
