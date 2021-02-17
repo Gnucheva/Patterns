@@ -9,10 +9,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class DataGenerator {
 
-    private static Faker faker;
-
     static {
-        faker = new Faker(new Locale("ru"));
+        new Faker(new Locale("ru"));
     }
 
     private DataGenerator() {
@@ -23,21 +21,16 @@ public class DataGenerator {
         }
 
         public static User generateUser() {
-            Faker faker = new Faker(new Locale("ru"));
             return new User(generateCity(), generateDate(3), generateName(), generatePhone());
         }
 
         public static String generateCity() {
-            Faker faker = new Faker(new Locale("ru"));
             String[] cities = new String[]{"Москва", "Пенза", "Волгоград", "Саратов", "Казань"};
             int itemIndex = (int) (Math.random() * cities.length);
             return cities[itemIndex];
         }
 
         public static String generateDate(int daysToAdd) {
-            LocalDate today = LocalDate.now();
-            LocalDate newDate = today.plusDays(3);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
             return LocalDate.now().plusDays(daysToAdd).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         }
 
